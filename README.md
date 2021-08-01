@@ -25,3 +25,13 @@ echo '{"configuredLevel": "DEBUG"}' | http POST localhost:8080/actuator/loggers/
 
 http -a actuator_user:actuator_pass POST localhost:8080/actuator/shutdown
 ```
+
+## Prometheus and Grafana
+
+```
+docker pull prom/prometheus
+docker run -d --name=prometheus -p 9090:9090 -v <PATH_TO_prometheus.yml_FILE>:/etc/prometheus/prometheus.yml prom/prometheus --config.file=/etc/prometheus/prometheus.yml
+
+docker run -d --name=grafana -p 3000:3000 grafana/grafana
+
+```
